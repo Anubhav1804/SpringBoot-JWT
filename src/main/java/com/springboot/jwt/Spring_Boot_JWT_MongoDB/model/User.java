@@ -18,7 +18,6 @@ import org.bson.types.ObjectId;
 public class User {
     @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId id;
-    //private int id;
     private String name;
     private String email;
     private String password;

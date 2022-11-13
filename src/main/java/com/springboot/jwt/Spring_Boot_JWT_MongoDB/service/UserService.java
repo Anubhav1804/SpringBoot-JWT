@@ -30,5 +30,8 @@ public class UserService {
     public String saveUser(User user) {
         User savedUser = userRepository.save(user);
         return tokenService.createToken(savedUser.getId());
+
+//        userRepository.save(user);
+//        return "saved user";
     }
 }

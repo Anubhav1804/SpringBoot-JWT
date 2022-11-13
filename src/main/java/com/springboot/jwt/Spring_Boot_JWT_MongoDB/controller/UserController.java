@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+    @Autowired
     private UserService userService;
 
     public UserController(UserService userService) {
@@ -21,9 +22,9 @@ public class UserController {
         return userService.saveUser(user);
     }
 
-    @GetMapping("/getUserDetails/{userId}")
-    public User getUserDetails(@PathVariable("userId") ObjectId userId) {
-        //ObjectId userId = (ObjectId) httpServletRequest.getAttribute("userId");
+    @GetMapping("/getUserDetails")
+    public User getUserDetails(HttpServletRequest httpServletRequest) {
+        ObjectId userId = (ObjectId) httpServletRequest.getAttribute("userId");
         return userService.getUser(userId);
     }
 }
